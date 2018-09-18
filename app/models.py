@@ -2,7 +2,7 @@ from . import db
 from datetime import datetime
 
 
-class Post(db.Model):
+class ForumPost(db.Model):
     """
     Class that defines the actual blog posts
     """
@@ -11,7 +11,7 @@ class Post(db.Model):
     title = db.Column(db.String(100))
     post = db.Column(db.Text)
     date_posted = db.Column(db.DateTime, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     comments = db.relationship('Comment', backref='post', lazy='dynamic')
 
@@ -21,16 +21,16 @@ class Post(db.Model):
 
     @classmethod
     def get_posts(cls):
-        posts = Post.query.order_by(Post.date_posted.desc()).all()
+        posts = ForumPost.query.order_by(ForumPost.date_posted.desc()).all()
         return posts
 
 
-class Comment(db.Model):
+class ForumThread(db.Model):
     """
     class that defines the comments on pitches
     """
 
-    __tablename__ = 'comments'
+    __tablename__ = 'threads'
 
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(255))
