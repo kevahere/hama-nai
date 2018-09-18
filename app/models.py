@@ -13,7 +13,7 @@ class ForumPost(db.Model):
     date_posted = db.Column(db.DateTime, default=datetime.utcnow)
     # user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    comments = db.relationship('Comment', backref='post', lazy='dynamic')
+    thread = db.relationship('ForumThread', backref='post', lazy='dynamic')
 
     def save_post(self):
         db.session.add(self)
