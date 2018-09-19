@@ -16,6 +16,26 @@ def index():
     return render_template('index.html', title=title, posts=posts)
 
 
+@main.route('/new_post', methods=['GET', 'POST'])
+def new_post():
+    """
+    Displays the new post page with a markdown form
+    :return:
+    """
+    post_form = PostForm()
+    if post_form.validate_on_submit():
+        title = post_form.title.data
+        post_actual = post_form.post.data
+
+        new_post = ForumPost(title=title, post=post_actual)
+
+        new_post.save_post()
+
+        return redirect(url_for('main.index'))
+
+    return render_template('new_post.html', post_form=post_form)
+
+
 @main.route('/post/<int:post_id>', methods=['GET', 'POST'])
 def post(post_id):
     """
@@ -27,13 +47,13 @@ def post(post_id):
     form = ThreadForm()
 
     if form.validate_on_submit():
-        comment = form.comment.data
-        new_comment = Comment(comment=comment, post_id=post_id)
+        new_thread = form.comment.data
+        new_thread = ForumThread(thread=new_thread, post_id=post_id)
 
-        new_comment.save_comment()
+        new_thread.save_comment()
 
         return redirect(url_for('.post', post_id=post.id))
 
-    comments = Comment.query.filter_by(post_id=post_id).all()
+    thread = ForumThread.query.filter_by(post_id=post_id).all()
 
-    return render_template('post.html', post=post, post_id=post_id, comment_form=form, comments=comments)
+    return render_template('post.html', post=post, post_id=post_id, comment_form=form, comments=thread)

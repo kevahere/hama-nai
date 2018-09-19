@@ -33,7 +33,7 @@ class ForumThread(db.Model):
     __tablename__ = 'threads'
 
     id = db.Column(db.Integer, primary_key=True)
-    comment = db.Column(db.String(255))
+    thread = db.Column(db.String(255))
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
 
     def save_comment(self):
