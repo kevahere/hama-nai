@@ -4,16 +4,16 @@ from ..models import ForumPost, ForumThread
 from .forms import PostForm, ThreadForm
 
 
-@main.route('/')
+@main.route('/forum')
 def index():
     """
-    Display the landing page
+    Display the landing page for the forum
     :return:
     """
     posts = ForumPost.get_posts()
     title = 'Nahamia nai forum'
 
-    return render_template('index.html', title=title, posts=posts)
+    return render_template('forum.html', title=title, posts=posts)
 
 
 @main.route('/new_post', methods=['GET', 'POST'])
