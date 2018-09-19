@@ -39,3 +39,22 @@ class ForumThread(db.Model):
     def save_comment(self):
         db.session.add(self)
         db.session.commit()
+
+
+class Event(db.Model):
+    """
+    class that defines an event
+    """
+
+    __tablename__ = 'events'
+    id = db.Column(db.Integer, primary_key=True)
+    event_name = db.Column(db.String(50))
+    event_description = db.Column(db.String(250))
+    event_Location = db.Column(db.String(50))
+    event_charges = db.Column(db.String(50))
+    event_poster = db.Column(db.String)
+
+    def save_event(self):
+        db.session.add(self)
+        db.session.commit()
+
