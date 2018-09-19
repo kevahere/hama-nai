@@ -1,22 +1,36 @@
 from flask import Flask
-from config import config_options,Config
-
+from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
-bootstrap = Bootstrap()
+from config import config_options
+from flask_simplemde import SimpleMDE
 
+
+db = SQLAlchemy()
+bootstrap = Bootstrap()
+simple = SimpleMDE()
 
 
 def create_app(config_name):
+    """
+    creating the app instance
+    :param config_name:
+    :return:
+    """
 
     app = Flask(__name__)
 
-    # Creating the app configurations
+    # creating from config
     app.config.from_object(config_options[config_name])
-    app.config.from_object(Config)
-    # Initializing flask extensions
-    bootstrap.init_app(app)
+    config_options[config_name].init_app(app)
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
+    # Registering the main blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    # initialising the app components
+    bootstrap.init_app(app)
+    db.init_app(app)
+    simple.init_app(app)
 
     return app
