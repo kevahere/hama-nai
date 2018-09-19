@@ -1,2 +1,7 @@
 {% extends 'base.html' %}
 
+{% block content %}
+    {% for event in events %}
+        {{event.event_name}}
+    {% endfor %}
+{% endblock %}

@@ -3,11 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from config import config_options
 from flask_simplemde import SimpleMDE
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 
 
 db = SQLAlchemy()
 bootstrap = Bootstrap()
 simple = SimpleMDE()
+photos = UploadSet('photos', IMAGES)
 
 
 def create_app(config_name):
@@ -32,5 +34,8 @@ def create_app(config_name):
     bootstrap.init_app(app)
     db.init_app(app)
     simple.init_app(app)
+
+    # configure UploadSet
+    configure_uploads(app, photos)
 
     return app

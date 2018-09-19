@@ -1,7 +1,8 @@
 from flask import render_template, request, redirect, url_for, abort
 from . import main
-from ..models import ForumPost, ForumThread
-from .forms import PostForm, ThreadForm
+from ..models import ForumPost, ForumThread, Event
+from .forms import PostForm, ThreadForm, EventsForm
+from .. import db, photos
 
 
 @main.route('/forum')
@@ -47,8 +48,8 @@ def post(post_id):
     form = ThreadForm()
 
     if form.validate_on_submit():
-        new_thread = form.comment.data
-        new_thread = ForumThread(thread=new_thread, post_id=post_id)
+        thread = form.comment.data
+        new_thread = ForumThread(thread=thread, post_id=post_id)
 
         new_thread.save_comment()
 
@@ -61,10 +62,59 @@ def post(post_id):
 
 @main.route('/')
 def index():
-
     '''
     View root function that returns the index page
     '''
 
     return render_template('index.html')
 
+
+@main.route('/new_event', methods=['GET', 'POST'])
+def new_event():
+    """
+    display the new event form
+    :return:
+    """
+
+    event_form = EventsForm()
+
+    def upload():
+        """
+        upload a picture
+        :return:
+        """
+        if 'photo' in request.files:
+            filename = photos.save(request.files['photo'])
+            path = f'event_pics/{filename}'
+        return path
+
+    if event_form.validate_on_submit():
+        title = event_form.event_title.data
+        description = event_form.event_desc.data
+        location = event_form.event_loc.data
+        charges = event_form.event_charges.data
+        pic = upload()
+
+        new_event = Event(event_name=title,
+                          event_descripton=description,
+                          event_location=location,
+                          event_charges=charges,
+                          event_poster=pic)
+
+        new_event.save_event()
+
+        return redirect('.events')
+    title = 'Post an event'
+    return render_template('new_event.html', title=title, event_form=event_form)
+
+
+@main.route('events')
+def events():
+    """
+    display a list of events
+    :return:
+    """
+
+    events = Event.query.filter_by().all()
+    title= 'Whats happening'
+    return render_template('events.html', title=title, events=events)

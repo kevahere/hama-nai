@@ -50,7 +50,7 @@ class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     event_name = db.Column(db.String(50))
     event_description = db.Column(db.String(250))
-    event_Location = db.Column(db.String(50))
+    event_location = db.Column(db.String(50))
     event_charges = db.Column(db.String(50))
     event_poster = db.Column(db.String)
 
