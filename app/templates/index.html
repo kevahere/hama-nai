@@ -1,14 +1,5 @@
-{% extends 'base.html' %}
- {% import 'macros.html' as macro%}
- {% block navbar %}
-   {% include 'navbar.html'%}
- {% endblock %}
-
- {% block styles %}
-  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% import 'macros.html' as macro%} {% block navbar %} {% include 'navbar.html'%} {% endblock %} {% block styles %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %} {% block content %}
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-1">Karibu Nairobi</h1>
@@ -46,101 +37,67 @@
 
 <div class="container">
   <div class="card mt-5">
-  <div class="card-header">
-    Featured
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Speak to a human being</a>
+    </div>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Speak to a human being</a>
-  </div>
-</div>
 </div>
 
 <div class="container">
-  <!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
+  <footer class="page-footer font-small blue pt-4">
 
-    <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
-
-      <!-- Grid row -->
       <div class="row">
-
-        <!-- Grid column -->
         <div class="col-md-6 mt-md-0 mt-3">
-
-          <!-- Content -->
           <h5 class="text-uppercase">Footer Content</h5>
           <p>Here you can use rows and columns here to organize your footer content.</p>
 
         </div>
-        <!-- Grid column -->
-
         <hr class="clearfix w-100 d-md-none pb-3">
-
-        <!-- Grid column -->
         <div class="col-md-3 mb-md-0 mb-3">
+          <h5 class="text-uppercase">Our Partners</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Kenya Buzz</a>
+            </li>
+            <li>
+              <a href="#!">EatOut</a>
+            </li>
+            <li>
+              <a href="#!">Ma3Route</a>
+            </li>
+            <li>
+              <a href="#!">Kejahunt</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-md-0 mb-3">
+          <h5 class="text-uppercase">Social</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!"><i class="fab fa-facebook-square fa-2x"></i></a>
+            </li>
+            <li>
+              <a href="#!"><i class="fab fa-twitter-square fa-2x"></i></a>
+            </li>
+            <li>
+              <a href=""><i class="fab fa-instagram fa-2x"></i></a>
+            </li>
+          </ul>
 
-            <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
-
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">Link 1</a>
-              </li>
-              <li>
-                <a href="#!">Link 2</a>
-              </li>
-              <li>
-                <a href="#!">Link 3</a>
-              </li>
-              <li>
-                <a href="#!">Link 4</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
-
+        </div>
       </div>
-      <!-- Grid row -->
-
     </div>
-    <!-- Footer Links -->
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
-      <a href="https://mdbootstrap.com/bootstrap-tutorial/"> MDBootstrap.com</a>
+      <a href="https://mdbootstrap.com/bootstrap-tutorial/"> Hamanai.com</a>
     </div>
-    <!-- Copyright -->
-
   </footer>
-  <!-- Footer -->
-
 </div>
 {% endblock %}
