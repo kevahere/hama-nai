@@ -20,6 +20,7 @@ class Config:
     def init_app(app):
         pass
 
+<<<<<<< HEAD
 
 class DevConfig(Config):
     """
@@ -29,6 +30,9 @@ class DevConfig(Config):
     DEBUG = True
 
 
+=======
+    pass
+>>>>>>> c0d338d063c911a06d62613347a1241a8b78ca42
 class ProdConfig(Config):
     """
     class that defines the settings for the deployed app

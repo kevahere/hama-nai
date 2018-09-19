@@ -1,4 +1,4 @@
-from flask import render_template,request,redirect,url_for,abort
+from flask import render_template, request, redirect, url_for, abort
 from . import main
 from ..models import ForumPost, ForumThread
 from .forms import PostForm, ThreadForm
@@ -57,3 +57,14 @@ def post(post_id):
     thread = ForumThread.query.filter_by(post_id=post_id).all()
 
     return render_template('post.html', post=post, post_id=post_id, comment_form=form, comments=thread)
+
+
+@main.route('/')
+def index():
+
+    '''
+    View root function that returns the index page
+    '''
+
+    return render_template('index.html')
+
