@@ -68,3 +68,12 @@ def index():
 
     return render_template('index.html')
 
+@main.route('/culture')
+def culture():
+
+    '''
+    View root function that returns the index page
+    '''
+
+    return render_template('culture.html')
+
