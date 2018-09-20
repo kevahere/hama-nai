@@ -3,6 +3,7 @@ from . import main
 from ..models import ForumPost, ForumThread, Event
 from .forms import PostForm, ThreadForm, EventsForm
 from .. import db, photos
+from werkzeug.utils import secure_filename
 
 
 @main.route('/forum')
@@ -78,43 +79,33 @@ def new_event():
 
     event_form = EventsForm()
 
-    def upload():
-        """
-        upload a picture
-        :return:
-        """
-        if 'photo' in request.files:
-            filename = photos.save(request.files['photo'])
-            path = f'event_pics/{filename}'
-        return path
-
     if event_form.validate_on_submit():
         title = event_form.event_title.data
         description = event_form.event_desc.data
         location = event_form.event_loc.data
         charges = event_form.event_charges.data
-        pic = upload()
+        filename = photos.save(event_form.pic.data)
+        pic = f'event_pics/{filename}'
 
-        new_event = Event(event_name=title,
-                          event_descripton=description,
+        fresh_event = Event(event_name=title,
+                          event_description=description,
                           event_location=location,
                           event_charges=charges,
                           event_poster=pic)
 
-        new_event.save_event()
+        fresh_event.save_event()
 
-        return redirect('.events')
+        return redirect('events')
     title = 'Post an event'
     return render_template('new_event.html', title=title, event_form=event_form)
 
 
-@main.route('events')
+@main.route('/events')
 def events():
     """
     display a list of events
     :return:
     """
-
     events = Event.query.filter_by().all()
     title= 'Whats happening'
     return render_template('events.html', title=title, events=events)

@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
-from flask_wtf.file import FileField, FileRequired
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms.validators import Required
+from app import photos
 
 
 class PostForm(FlaskForm):
@@ -20,5 +21,5 @@ class EventsForm(FlaskForm):
     event_desc = TextAreaField('Description')
     event_loc = TextAreaField('Location')
     event_charges = TextAreaField('Charges')
-    pic = FileField(validators=[FileRequired()])
+    pic = FileField(validators=[FileAllowed(photos, u'Image only!'), FileRequired(u'File was empty!')])
     submit = SubmitField('Submit')
