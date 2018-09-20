@@ -1,9 +1,8 @@
 from flask import render_template, request, redirect, url_for, abort
 from . import main
-from ..models import ForumPost, ForumThread, Event, Guides
+from ..models import ForumPost, ForumThread, Event, Guide
 from .forms import PostForm, ThreadForm, EventsForm
 from .. import db, photos
-from werkzeug.utils import secure_filename
 
 
 @main.route('/forum')
@@ -67,7 +66,8 @@ def index():
     View root function that returns the index page
     '''
 
-    return render_template('index.html')
+    title='Nahamia-nai - Home'
+    return render_template('index.html', title=title)
 
 
 @main.route('/new_event', methods=['GET', 'POST'])
@@ -107,6 +107,7 @@ def events():
     :return:
     """
     events = Event.query.filter_by().all()
+    print(events)
     title= 'Whats happening'
     return render_template('events.html', title=title, events=events)
 
@@ -114,9 +115,10 @@ def events():
 @main.route('/guides')
 def guides():
     """
-    display a list of events
+    display a list of guides
     :return:
     """
-    guides = Guide.query.filter_by().all()
-    title= 'Whats happening'
-    return render_template('events.html', title=title, events=events)
+
+    guided = Guide.query.filter_by().all()
+    title= 'Take me around'
+    return render_template('guides.html', title=title, guided=guided)

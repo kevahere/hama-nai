@@ -3,12 +3,12 @@
 {% block content %}
 <div class="col-md-2"></div>
     <div class="col-md-8">
-    {% for guide in guides %}
+    {% for guide in guided %}
         <div class="row">
-        <div class="col-md-6 mb-5">
-        <img src="{{url_for('static', filename=guide.avatar)}}" alt="{{guide.name}}" width="400">
+        <div class="col-md-4 mb-5">
+        <img src="{{url_for('static', filename=guide.avatar)}}" alt="{{guide.name}}" width="200", height="200", style="border-radius: 50%;">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <h1>{{guide.name}}</h1> <br>
             {{guide.description}}<br>
             {{guide.bio}}<br>

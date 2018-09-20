@@ -72,6 +72,6 @@ class Guide(db.Model):
     phone = db.Column(db.String(50))
     avatar = db.Column(db.String())
 
-    def save_event(self):
+    def save_guide(self):
         db.session.add(self)
         db.session.commit()
