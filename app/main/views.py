@@ -77,3 +77,11 @@ def culture():
 
     return render_template('culture.html')
 
+@main.route('/lugha')
+def lugha():
+
+    '''
+    View root function that returns the index page
+    '''
+
+    return render_template('lugha.html')
