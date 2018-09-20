@@ -1,8 +1,5 @@
 #Nahamia-nai
 
-# pitchblack
-This is a simple python-based application that allows users to views pitches, comment on them, vote and add their own. 
-
 #### By **ALPHA TEAM**
 
 ## Description
