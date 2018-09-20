@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for, abort
 from . import main
-from ..models import ForumPost, ForumThread, Event
+from ..models import ForumPost, ForumThread, Event, Guides
 from .forms import PostForm, ThreadForm, EventsForm
 from .. import db, photos
 from werkzeug.utils import secure_filename
@@ -107,5 +107,16 @@ def events():
     :return:
     """
     events = Event.query.filter_by().all()
+    title= 'Whats happening'
+    return render_template('events.html', title=title, events=events)
+
+
+@main.route('/guides')
+def guides():
+    """
+    display a list of events
+    :return:
+    """
+    guides = Guide.query.filter_by().all()
     title= 'Whats happening'
     return render_template('events.html', title=title, events=events)
