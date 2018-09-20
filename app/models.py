@@ -58,3 +58,20 @@ class Event(db.Model):
         db.session.add(self)
         db.session.commit()
 
+
+class Guide(db.Model):
+    """
+    class that defines a guide
+    """
+
+    __tablename__ = 'guides'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    description = db.Column(db.String(250))
+    bio = db.Column(db.String(250))
+    phone = db.Column(db.String(50))
+    avatar = db.Column(db.String())
+
+    def save_event(self):
+        db.session.add(self)
+        db.session.commit()

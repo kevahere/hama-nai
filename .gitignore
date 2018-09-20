@@ -1,3 +1,4 @@
 environ/
 start.sh
 *.pyc
+.idea/
