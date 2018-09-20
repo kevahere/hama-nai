@@ -3,7 +3,7 @@
 #### By **ALPHA TEAM**
 
 ## Description
-This application is meant for expatriates and any other individuals trying looking to live in the beautiful city of Nairobi. The essense of the application is to provide individuals with a sense of familiarity by providing a platform where they can find a footing with regards to where to stay, which places to visit, how to interact and move around in addition to making them generally comfortable with their environment. 
+This application is meant for expatriates and any other individuals looking to live/move to the beautiful city of Nairobi. The essense of the application is to provide individuals with a sense of familiarity by providing a platform where they can find a footing with regards to where to stay, which places to visit, how to interact and move around in addition to making them generally comfortable with their environment. 
 
 ## Prerequsites
     - Python 3.6 required
