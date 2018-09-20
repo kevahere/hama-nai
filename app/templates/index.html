@@ -1,0 +1,103 @@
+{% extends 'base.html' %} {% import 'macros.html' as macro%} {% block navbar %} {% include 'navbar.html'%} {% endblock %} {% block styles %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %} {% block content %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-1">Karibu Nairobi</h1>
+    <p class="lead">Moving to a new city is usually daunting.Luckily,you have us.</p>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="card-deck ml-3 mr-3">
+    <div class="card">
+      <div class="card-body">
+        <i class="fas fa-home fa-5x"></i>
+        <h5 class="card-title">Find a home</h5>
+        <p class="card-text">Find your ideal home based on your exact needs.Find schools and places to work from.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <i class="fas fa-route fa-5x"></i>
+        <h5 class="card-title">Get around</h5>
+        <p class="card-text">Matatus,bus routes,cab-hailing apps and rentals</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <i class="fas fa-handshake fa-5x"></i>
+        <h5 class="card-title">Meet interesting people</h5>
+        <p class="card-text">Explore Nairobi's vibrant social scene and find your tribe.</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      Nairobi Guides
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Explore Nairobi with a Nairobian</h5>
+      <p class="card-text">We've found that a good way to start yourself off getting acquianted with Nairobi is to explore with a
+       friend. Take a look at our list of approved guides. You can also call them and ask spwcific questions you may have.</p>
+      <a href="#" class="btn btn-primary">Speak to a human being</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <footer class="page-footer font-small blue pt-4">
+
+    <div class="container-fluid text-center text-md-left">
+      <div class="row">
+        <div class="col-md-6 mt-md-0 mt-3">
+          <h5 class="text-uppercase">Nahamia Nai</h5>
+          <p>Buy us a coffee. <i class="fas fa-smile-wink fa-lg"></i></p>
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3">
+        <div class="col-md-3 mb-md-0 mb-3">
+          <h5 class="text-uppercase">Our Partners</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">Kenya Buzz</a>
+            </li>
+            <li>
+              <a href="#!">EatOut</a>
+            </li>
+            <li>
+              <a href="#!">Ma3Route</a>
+            </li>
+            <li>
+              <a href="#!">Kejahunt</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-md-0 mb-3">
+          <h5 class="text-uppercase">Social</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!"><i class="fab fa-facebook-square fa-2x"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/"><i class="fab fa-twitter-square fa-2x"></i></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/"><i class="fab fa-instagram fa-2x"></i></a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/bootstrap-tutorial/"> Hamanai.com</a>
+    </div>
+  </footer>
+</div>
+{% endblock %}

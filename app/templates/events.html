@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-2"></div>
+    <div class="col-md-8">
+    {% for event in events %}
+        <div class="row">
+        <div class="col-md-6 mb-5">
+        <img src="{{url_for('static', filename=event.event_poster)}}" alt="{{event.event_name}}" width="400">
+        </div>
+        <div class="col-md-6">
+            <h1>{{event.event_name}}</h1> <br>
+            {{event.event_description}}<br>
+            {{event.event_location}}<br>
+            {{event.event_charges}}<br>
+        </div>
+            <hr>
+        </div>
+
+    {% endfor %}
+        </div>
+    <div class="col-md-2"></div>
+{% endblock %}

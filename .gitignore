@@ -1,0 +1,5 @@
+virtual/
+.idea/
+*.pyc
+start.sh
+*.pyc
