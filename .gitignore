@@ -1,2 +1,4 @@
-environ/
+virtual/
+.idea/
+*.pyc
 start.sh

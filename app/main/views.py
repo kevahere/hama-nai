@@ -5,7 +5,7 @@ from .forms import PostForm, ThreadForm
 
 
 @main.route('/forum')
-def index():
+def forum():
     """
     Display the landing page for the forum
     :return:
