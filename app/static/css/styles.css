@@ -1,0 +1,55 @@
+html {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body {
+    background-color: #1B1B1B;
+    color: #922724;
+}
+
+.karibu {
+    background-image: url('/static/naidaynight.jpg');
+    min-height: 100px;
+    min-width: 100px
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-family: 'Caveat Brush', cursive;
+}
+
+.lead {
+    text-align: center;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 30px;
+}
+
+.cardImg {
+    height: 300px;
+}
+
+.guide {
+    background-image: url('/static/explore.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding-top: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-bottom: 100px;
+}
+
+hr  {
+    overflow: visible;
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
