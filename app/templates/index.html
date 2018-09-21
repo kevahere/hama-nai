@@ -1,41 +1,52 @@
 {% extends 'base.html' %} {% import 'macros.html' as macro%} {% block navbar %} {% include 'navbar.html'%} {% endblock %} {% block styles %}
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %} {% block content %}
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid karibu">
   <div class="container">
-    <h1 class="display-1">Karibu Nairobi</h1>
-    <p class="lead">Moving to a new city is usually daunting.Luckily,you have us.</p>
+    <h1 class="display-1">Kalotu Nai</h1>
   </div>
 </div>
+<hr>
+<p class="lead">Moving to a new city is usually daunting.Luckily,you have us.</p>
+<hr>
 <div class="container-fluid">
   <div class="card-deck ml-3 mr-3">
     <div class="card">
-      <div class="card-body">
-        <i class="fas fa-home fa-5x"></i>
-        <h5 class="card-title">Find a home</h5>
-        <p class="card-text">Find your ideal home based on your exact needs.Find schools and places to work from.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
+        <img class="cardImg" src="/static/home.jpeg" alt="">
+        <div class="container">
+          <div class="card-body">
+            <i class="fas fa-home fa-5x"></i>
+            <h5 class="card-title">Find a home</h5>
+            <p class="card-text">Find your ideal home based on your exact needs.Find schools and places to work from.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
     </div>
     <div class="card">
-      <div class="card-body">
-        <i class="fas fa-route fa-5x"></i>
-        <h5 class="card-title">Get around</h5>
-        <p class="card-text">Matatus,bus routes,cab-hailing apps and rentals</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
+        <img class="cardImg" src="/static/getaround.jpeg" alt="">
+        <div class="container">
+          <div class="card-body">
+            <i class="fas fa-route fa-5x"></i>
+            <h5 class="card-title">Get around</h5>
+            <p class="card-text">Matatus,bus routes,cab-hailing apps and rentals</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
     </div>
     <div class="card">
-      <div class="card-body">
-        <i class="fas fa-handshake fa-5x"></i>
-        <h5 class="card-title">Meet interesting people</h5>
-        <p class="card-text">Explore Nairobi's vibrant social scene and find your tribe.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
+        <img class="cardImg" src="/static/meetpeople.jpeg" alt="">
+        <div class="container">
+          <div class="card-body">
+            <i class="fas fa-handshake fa-5x"></i>
+            <h5 class="card-title">Meet interesting people</h5>
+            <p class="card-text">Explore Nairobi's vibrant social scene and find your tribe.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
     </div>
   </div>
 </div>
-
-<div class="container">
+<hr>
+<div class="container guide">
   <div class="card mt-5">
     <div class="card-header">
       Nairobi Guides
@@ -48,7 +59,7 @@
     </div>
   </div>
 </div>
-
+<hr>
 <div class="container">
   <footer class="page-footer font-small blue pt-4">
 

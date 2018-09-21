@@ -1,7 +1,8 @@
 from flask import render_template, request, redirect, url_for, abort
 from . import main
-from ..models import ForumPost, ForumThread, Event
-from .forms import PostForm, ThreadForm, EventsForm
+from ..models import ForumPost, ForumThread, Event, Roomate
+from flask_login import login_required, current_user
+from .forms import PostForm, ThreadForm, EventsForm, UpdateProfile
 from .. import db, photos
 from werkzeug.utils import secure_filename
 
@@ -109,3 +110,65 @@ def events():
     events = Event.query.filter_by().all()
     title= 'Whats happening'
     return render_template('events.html', title=title, events=events)
+
+
+@main.route('/roomate/<uname>&<id_roomate>')
+@login_required
+def profile(uname, id_roomate):
+    user = Roomate.query.filter_by(username=uname).first()
+
+    title = f"{uname.capitalize()}'s Profile"
+
+    if user is None:
+        abort(404)
+
+    return render_template('profile/profile.html', user=user, title=title)
+
+
+@main.route('/roomate/<uname>/update', methods=['GET', 'POST'])
+@login_required
+def update_profile(uname):
+    user = Roomate.query.filter_by(username=uname).first()
+
+    if user is None:
+        abort(404)
+
+    update_form = UpdateProfile()
+
+    if update_form.validate_on_submit():
+        user.bio = update_form.bio.data
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.profile', uname=user.username, id_user=user.id))
+    title = 'Update Bio'
+    return render_template('profile/update.html', form=update_form, title=title)
+
+@main.route('/roomate/<uname>/update/pic',methods= ['POST'])
+@login_required
+def update_pic(uname):
+    user = Roomate.query.filter_by(username = uname).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
+    return redirect(url_for('main.profile',uname=uname,id_user=current_user.id))
+
+@main.route('/roomates')
+def roomates():
+    '''
+    root page function that returns the index page and its data
+    '''
+    title = "Welcome | Roomates"
+
+    return render_template("roomates.html", title=title)
+
+@main.route('/housing')
+def housing():
+    '''
+    root page function that returns the index page and its data
+    '''
+    title = "Welcome | Housing"
+
+    return render_template("Housing.html", title=title)

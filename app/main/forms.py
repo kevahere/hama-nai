@@ -23,3 +23,7 @@ class EventsForm(FlaskForm):
     event_charges = TextAreaField('Charges')
     pic = FileField(validators=[FileAllowed(photos, u'Image only!'), FileRequired(u'File was empty!')])
     submit = SubmitField('Submit')
+
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('Write something about yourself',validators=[Required()])
+    submit = SubmitField('Submit')
