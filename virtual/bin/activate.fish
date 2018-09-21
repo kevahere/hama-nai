@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/kevin/PycharmProjects/hama-nai/virtual"
+set -gx VIRTUAL_ENV "/home/steve/Documents/Python/nahamia-nai/virtual"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

@@ -1,16 +1,26 @@
 import os
 
-class Config:
+class config:
 
-    pass
-class ProdConfig(Config):
-    pass
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://steve:poa@localhost/nahamianai'   
+    SECRET_KEY = "steve"
+    # MAIL_SERVER = 'smtp.gmail.com'
+    # MAIL_PORT = 587
+    # MAIL_USE_TLS = True
+    # MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    # MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
+class ProdConfig(config):
+    
+    SECRET_KEY = os.environ.get("SECRET_KEY")
 
-class DevConfig(Config):
+class DevConfig(config):
+
     DEBUG = True
 
 config_options = {
-'development':DevConfig,
-'production':ProdConfig
+    'production': ProdConfig,
+    'development': DevConfig
+    
 }
